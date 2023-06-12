@@ -10,7 +10,7 @@
 
   <nav class="navbar p-3">
     <a class="navbar-brand text-white" href=" {{ route('home') }} ">Home</a>
-    {{-- <a class="navbar-brand text-white" href=" {{ route('home') }} ">List</a> --}}
+    {{-- <a class="navbar-brand text-white" href=" {{ route('') }} ">List</a> --}}
     <a class="navbar-brand text-white" href=" {{ route('info') }} ">Info</a>
   </nav>
 

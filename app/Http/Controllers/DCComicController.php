@@ -25,7 +25,8 @@ class DCComicController extends Controller
      */
     public function create()
     {
-        //
+      //* form per aggiungere un nuovo prodotto
+      return view('comics.create');
     }
 
     /**
@@ -36,7 +37,9 @@ class DCComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //* qui vengono ricevuti i dati inviati dal form e si ottengono con $request->all()
+      $form_data = $request->all();
+      dd($form_data);
     }
 
     /**

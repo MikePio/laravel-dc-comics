@@ -42,22 +42,30 @@ class DCComicController extends Controller
       // dd($form_data);
 
       $new_comic = new DCComic;
+//*soluzione 1
+      // $new_comic->title = $form_data['title'];
+// lo slug deve essere generato in modo automatico ogni volta che viene creato un nuovo prodotto quindi è stata creata un funzione nel model
+      // $new_comic->slug = DCComic::generateSlug($new_comic->title);
+      // $new_comic->description = $form_data['description'];
+      // $new_comic->thumb = $form_data['thumb'];
+      // $new_comic->price = $form_data['price'];
+      // $new_comic->series = $form_data['series'];
+      // $new_comic->sale_date = $form_data['sale_date'];
+      // $new_comic->type = $form_data['type'];
+      // $new_comic->artists = $form_data['artists'];
+      // $new_comic->writers = $form_data['writers'];
 
-      $new_comic->title = $form_data['title'];
-      $new_comic->slug = DCComic::generateSlug($new_comic->title);
-      $new_comic->description = $form_data['description'];
-      $new_comic->thumb = $form_data['thumb'];
-      $new_comic->price = $form_data['price'];
-      $new_comic->series = $form_data['series'];
-      $new_comic->sale_date = $form_data['sale_date'];
-      $new_comic->type = $form_data['type'];
-      $new_comic->artists = $form_data['artists'];
-      $new_comic->writers = $form_data['writers'];
+//*soluzione 2 con il metodo fill
+// lo slug deve essere generato in modo automatico ogni volta che viene creato un nuovo prodotto quindi è stata creata un funzione nel model
+      $form_data['slug'] = DCComic::generateSlug($form_data['title']);
+// con fill i dati vengono salvati tramite le chiavi salvate nel model in protected $fillable in modo da fare l'associazione chiave-valore automaticamente
+      $new_comic->fill($form_data);
 
       // dd($new_comic);
 
+      // viene salvato il prodotto
       $new_comic->save();
-
+      // viene mostrata la pagina del dettaglio del prodotto appena creato
       return redirect()->route('d_c_comics.show', $new_comic);
 
     }

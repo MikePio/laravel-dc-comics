@@ -11,6 +11,19 @@ class DCComic extends Model
 {
   use HasFactory;
 
+  protected $fillable = [
+    'title',
+    'slug',
+    'description',
+    'thumb',
+    'price',
+    'series',
+    'sale_date',
+    'type',
+    'artists',
+    'writers'
+  ];
+
   //* funzione per generare uno slug univoco
   public static function generateSlug($str){
 

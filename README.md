@@ -27,6 +27,10 @@ Creare il seeder per la tabella comics utilizzando il file `comics.php`.
 
 Terminare la CRUD.
 
+**Note:**
+
+comics.store e comics.update devono validare i dati. Se non sono validi reindirizza comics.create passando in sessione gli errori e in old() tutti i campi compilati.
+
 ### **BONUS**
 
 Per la validazione la soluzione migliore è creare una request custom:
@@ -37,34 +41,32 @@ Per la validazione la soluzione migliore è creare una request custom:
 
 ## **Breve riepilogo: Rotte resource**
 
-comics.index -> GET -> funzione del controller: index -> view: comics.index
+**comics.index** -> GET -> funzione del controller: index -> view: comics.index
 
-comics.show/{comic} -> GET -> funzione del controller: show -> view: comics.show
-
----------------------------------------------------
-
-comics.create INVIA IL FORM IN POST a comics.store
-
-comics.create -> GET -> funzione del controller: create -> view: comics.create (contiene il form di creazione)
-
-comics.store -> POST -> controlla la validità del dato, lo salva  e reindirizza a comics.show
+**comics.show/{comic}** -> GET -> funzione del controller: show -> view: comics.show
 
 ---------------------------------------------------
 
-comics.edit{comic} -> GET -> funzione del controller: edit -> view: comics.edit (contiene il form di modifica)
+**comics.create** -> GET -> funzione del controller: create -> view: comics.create (contiene il form di creazione)
 
-comics.edit INVIA IL FORM IN PUT a comics.update
+**comics.create** INVIA IL FORM IN ***POST*** a comics.store
 
----------------------------------------------------
-
-comics.update -> PUT -> controlla la validità del dato, lo aggiorna  e reindirizza a comics.show
+**comics.store** -> ***POST*** -> controlla la validità del dato, lo salva  e reindirizza a comics.show
 
 ---------------------------------------------------
 
-comics.destroy -> DELETE -> elimina il dato e reindirizza a comics.index
+**comics.edit{comic}** -> GET -> funzione del controller: edit -> view: **comics.edit** (contiene il form di modifica)
 
-**Note:**
+**comics.edit** INVIA IL FORM IN PUT a comics.update
 
-comics.store e comics.update devono validare i dati. Se non sono validi reindirizza comics.create passando in sessione gli errori e in old() tutti i campi compilati.
+---------------------------------------------------
+
+**comics.update** -> ***PUT*** -> controlla la validità del dato, lo aggiorna  e reindirizza a comics.show
+
+---------------------------------------------------
+
+**comics.destroy** -> ***DELETE*** -> elimina il dato e reindirizza a comics.index
+
+
 
 

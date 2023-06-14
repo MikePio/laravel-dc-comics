@@ -45,10 +45,20 @@ class DCComicController extends Controller
      * @param  \App\Models\DCComic  $dCComic
      * @return \Illuminate\Http\Response
      */
+    //* di default (soluzione migliore)
+    //! MA BISOGNA USARE IL PARAMETRO DI DEFAULT (in questo caso $dCComic) e non può essere modificato
     public function show(DCComic $dCComic)
     {
-        //
+      // dd($dCComic);
+      return view('comics.show', compact('dCComic'));
     }
+    // OPPURE con id
+    // public function show($id)
+    // {
+    //   $comic = DCComic::find($id);
+    //   // dd($comic);
+    //   return view('comics.show', compact('comic'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

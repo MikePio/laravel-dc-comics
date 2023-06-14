@@ -26,6 +26,7 @@ class DCComicsTableSeeder extends Seeder
 
         //* ottengo i dati dell'array nel file comics
         $new_comic->title = $comic['title'];
+        $new_comic->slug = $comic['slug'];
         $new_comic->description = $comic['description'];
         $new_comic->thumb = $comic['thumb'];
         $new_comic->price = $comic['price'];
